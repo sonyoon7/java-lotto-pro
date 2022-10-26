@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LottoService {
+public class Lottos {
 
     private final static int LOTTO_PRICE = 1000;
     private final List<Lotto> lottos;
     private final Map<Integer, Integer> statistics;
 
-    public LottoService() {
+    public Lottos() {
         lottos = new ArrayList<>();
         statistics = new HashMap<>();
         initStatistics();

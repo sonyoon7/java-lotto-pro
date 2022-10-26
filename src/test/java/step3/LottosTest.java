@@ -1,19 +1,14 @@
 package step3;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class LottoServiceTest {
+class LottosTest {
 
-    private LottoService lottoService = new LottoService();
+    private Lottos lottos = new Lottos();
     private View view = new View();
 
 
@@ -21,13 +16,13 @@ class LottoServiceTest {
     @ParameterizedTest
     @CsvSource(value = {"14000:14", "1000:1", "3000:3"}, delimiter = ':')
     void calculateLottoCount(int input, int expected) {
-        Assertions.assertEquals(expected, lottoService.calculateLottoCount(input));
+        Assertions.assertEquals(expected, lottos.calculateLottoCount(input));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3})
     void generateLottos(int input) {
-        Assertions.assertEquals(input, lottoService.generateLottos(input).size());
+        Assertions.assertEquals(input, lottos.generateLottos(input).size());
     }
 
 }
