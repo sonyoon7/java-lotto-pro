@@ -38,13 +38,22 @@ public class Lottos {
 
     public double statisticLottos(int money) {
         lottos.forEach(lotto -> {
+            if (isBonus(lotto)) {
+                statistics.computeIfPresent(Award.FIVE_BONUS.getCount() + 2, (k, v) -> v + 1);
+                return;
+            }
             statistics.computeIfPresent(lotto.getMatchCount(), (k, v) -> v + 1);
         });
         double sum = statistics.get(Award.THREE.getCount()) * Award.THREE.getAmount();
         sum += statistics.get(Award.FOUR.getCount()) * Award.FOUR.getAmount();
         sum += statistics.get(Award.FIVE.getCount()) * Award.FIVE.getAmount();
+        sum += statistics.get(Award.FIVE_BONUS.getCount() + 2) * Award.FIVE_BONUS.getAmount();
         sum += statistics.get(Award.SIX.getCount()) * Award.SIX.getAmount();
         return Math.floor(sum / money * 100) / 100;
+    }
+
+    private boolean isBonus(Lotto lotto) {
+        return lotto.getMatchCount() == Award.FOUR.getCount() && lotto.hasBonusNumber();
     }
 
     public Map<Integer, Integer> getStatistics() {
@@ -55,6 +64,7 @@ public class Lottos {
         statistics.put(Award.THREE.getCount(), 0);
         statistics.put(Award.FOUR.getCount(), 0);
         statistics.put(Award.FIVE.getCount(), 0);
+        statistics.put(Award.FIVE_BONUS.getCount() + 2, 0);
         statistics.put(Award.SIX.getCount(), 0);
     }
 

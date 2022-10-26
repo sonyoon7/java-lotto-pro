@@ -43,6 +43,10 @@ public class Lotto {
         return matchCount;
     }
 
+    public boolean hasBonusNumber() {
+        return hasBonusNumber;
+    }
+
     private List<Integer> initLotto() {
         for (int i = 1; i <= 45; i++) {
             range.add(i);
