@@ -1,5 +1,7 @@
 package step3;
 
+import java.util.List;
+
 public class LottoApplication {
     public static void main(String[] args) {
 
@@ -9,7 +11,9 @@ public class LottoApplication {
         int money = view.purchase();
         int purchasingNumber = lottos.calculateLottoCount(money);
         lottos.generateLottos(purchasingNumber);
-        lottos.matchWinningNumbers(view.inputWinnerNumbers());
+        List<Integer> winnerNumbers= view.inputWinnerNumbers();
+        int bonusball = view.inputBonusball();
+        lottos.matchWinningNumbers(winnerNumbers, bonusball);
 
         view.statistic(lottos.getStatistics(), lottos.statisticLottos(money));
 

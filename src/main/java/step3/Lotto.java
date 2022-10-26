@@ -12,6 +12,8 @@ public class Lotto {
 
     private int matchCount;
 
+    private boolean hasBonusNumber;
+
     public Lotto() {
         this.range = new ArrayList<>();
         initLotto();
@@ -29,6 +31,12 @@ public class Lotto {
         Collections.sort(lottoNumbers);
         lottoNumbers.retainAll(winningNumbers);
         this.matchCount = lottoNumbers.size();
+    }
+
+    public void matchBonusball(int bonusNumber) {
+        if (lottoNumbers.contains(bonusNumber)) {
+            this.hasBonusNumber = true;
+        }
     }
 
     public int getMatchCount() {

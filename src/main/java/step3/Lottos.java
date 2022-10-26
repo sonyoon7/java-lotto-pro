@@ -29,8 +29,9 @@ public class Lottos {
         return lottos;
     }
 
-    public void matchWinningNumbers(List<Integer> winningNumbers) {
+    public void matchWinningNumbers(List<Integer> winningNumbers, int bonusNumber) {
         lottos.forEach(lotto -> {
+            lotto.matchBonusball(bonusNumber);
             lotto.match(winningNumbers);
         });
     }
