@@ -10,7 +10,8 @@ public enum Message {
     MATCH_FOUR(Award.FOUR.getCount() + "개 일치 (" + Award.FOUR.getAmount() + "원)- "),
     MATCH_FIVE(Award.FIVE.getCount() + "개 일치 (" + Award.FIVE.getAmount() + "원)- "),
     MATCH_SIX(Award.SIX.getCount() + "개 일치 (" + Award.SIX.getAmount() + "원)- "),
-    STATISTICS_RESULT("총 수익률은 ");
+    STATISTICS_RESULT("총 수익률은 "),
+    BONUS("보너스 볼을 입력해 주세요.");
 
     private String message;
 

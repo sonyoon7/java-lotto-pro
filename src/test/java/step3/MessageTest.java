@@ -27,4 +27,9 @@ public class MessageTest {
     void 총수익률_문구_테스트() {
         Assertions.assertEquals(Message.STATISTICS_RESULT.resultStatistic(0.35), "총 수익률은 0.35입니다.");
     }
+
+    @Test
+    void 보너스_문구_테스트() {
+        Assertions.assertEquals(Message.BONUS.getMessage(), "보너스 볼을 입력해 주세요.");
+    }
 }

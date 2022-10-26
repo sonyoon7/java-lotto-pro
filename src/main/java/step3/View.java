@@ -36,4 +36,9 @@ public class View {
         System.out.println(Message.STATISTICS_RESULT.resultStatistic(statisticLottos));
     }
 
+    public int inputBonusball() {
+        System.out.println(Message.BONUS.getMessage());
+        return sc.nextInt();
+    }
+
 }
